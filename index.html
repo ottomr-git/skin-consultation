@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>肌膚檢測小幫手 — RIMAN 力曼</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== 歡迎頁 ===== -->
+  <section id="page-welcome" class="page active">
+    <div class="container welcome-container">
+      <div class="brand-badge">RIMAN</div>
+      <h1>肌膚檢測小幫手</h1>
+      <p class="subtitle">透過幾個簡單的問題，為您量身打造專屬保養方案</p>
+      <div class="welcome-features">
+        <div class="feature-item">
+          <span class="feature-icon">🔍</span>
+          <span>精準膚質分析</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💎</span>
+          <span>個人化產品推薦</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📋</span>
+          <span>每日保養步驟建議</span>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="startQuiz()">開始檢測</button>
+      <p class="note">約需 2 分鐘</p>
+    </div>
+  </section>
+
+  <!-- ===== 問答頁 ===== -->
+  <section id="page-quiz" class="page">
+    <div class="container quiz-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-text" id="progress-text"></p>
+
+      <div id="quiz-content"></div>
+
+      <div class="quiz-nav">
+        <button class="btn-secondary" id="btn-prev" onclick="prevQuestion()" style="display:none">上一題</button>
+        <button class="btn-primary" id="btn-next" onclick="nextQuestion()">下一題</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 分析中過場 ===== -->
+  <section id="page-analyzing" class="page">
+    <div class="container analyzing-container">
+      <div class="spinner"></div>
+      <h2>正在分析您的肌膚狀態…</h2>
+      <p>根據您的回答，為您配對最佳保養方案</p>
+    </div>
+  </section>
+
+  <!-- ===== 結果頁 ===== -->
+  <section id="page-result" class="page">
+    <div class="container result-container">
+
+      <!-- 膚質分析卡片 -->
+      <div class="result-section" id="result-skin-type">
+        <h2>您的膚質分析</h2>
+        <div class="skin-card" id="skin-card"></div>
+      </div>
+
+      <!-- 肌膚困擾 -->
+      <div class="result-section" id="result-concerns">
+        <h2>您的肌膚困擾</h2>
+        <div class="concern-tags" id="concern-tags"></div>
+      </div>
+
+      <!-- 推薦產品 -->
+      <div class="result-section">
+        <h2>為您推薦的產品</h2>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+
+      <!-- 推薦組合 -->
+      <div class="result-section" id="result-set" style="display:none">
+        <h2>推薦組合方案</h2>
+        <div id="set-card"></div>
+      </div>
+
+      <!-- 每日保養步驟 -->
+      <div class="result-section">
+        <h2>每日保養步驟建議</h2>
+        <div class="routine-steps" id="routine-steps"></div>
+      </div>
+
+      <!-- 重新測試 -->
+      <div class="result-footer">
+        <button class="btn-primary" onclick="restart()">重新檢測</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
